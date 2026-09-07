@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Opulence — Choose Comfort</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+
+  :root{
+    --black: #14110E;
+    --charcoal: #211C17;
+    --cream: #F4EEE2;
+    --ivory: #FBF8F2;
+    --gold-1: #7A4E24;
+    --gold-2: #C68A42;
+    --gold-3: #E9C384;
+    --brick: #6B2430;
+    --concrete: #3C372F;
+    --concrete-light: #56503F;
+    --ink: #1B1712;
+    --line: rgba(20,17,14,0.12);
+    --line-light: rgba(244,238,226,0.16);
+    --max: 1180px;
+  }
+
+  *{ box-sizing:border-box; margin:0; padding:0; }
+
+  html{ scroll-behavior:smooth; }
+
+  body{
+    background:var(--ivory);
+    color:var(--ink);
+    font-family:'Inter', sans-serif;
+    font-size:16px;
+    line-height:1.5;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    html{ scroll-behavior:auto; }
+    *{ animation-duration:0.01ms !important; animation-iteration-count:1 !important; transition-duration:0.01ms !important; }
+  }
+
+  h1,h2,h3{
+    font-family:'Fraunces', serif;
+    font-weight:500;
+    letter-spacing:-0.01em;
+    color:var(--ink);
+  }
+
+  a{ color:inherit; text-decoration:none; }
+
+  img,svg{ display:block; max-width:100%; }
+
+  .wrap{ max-width:var(--max); margin:0 auto; padding:0 32px; }
+
+  :focus-visible{ outline:2px solid var(--gold-2); outline-offset:3px; }
+
+  /* ---------- logo mark ---------- */
+  .mark{ display:flex; align-items:center; gap:12px; }
+  .mark svg{ width:34px; height:30px; flex-shrink:0; }
+  .mark .word{ display:flex; flex-direction:column; line-height:1; }
+  .mark .word span:first-child{
+    font-family:'Fraunces', serif; font-style:italic; font-weight:500;
+    font-size:22px; letter-spacing:0.02em;
+  }
+  .mark .word span:last-child{
+    font-size:9px; letter-spacing:0.22em; color:var(--gold-1); margin-top:4px;
+  }
+  .mark.on-dark .word span:first-child{ color:var(--ivory); }
+
+  /* ---------- nav ---------- */
+  header{
+    position:sticky; top:0; z-index:50;
+    background:rgba(251,248,242,0.92);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line);
+  }
+  header .wrap{
+    display:flex; align-items:center; justify-content:space-between;
+    height:78px;
+  }
+  nav.links{ display:flex; gap:36px; }
+  nav.links a{
+    font-size:14.5px; font-weight:500; color:var(--concrete);
+    position:relative; padding:4px 0;
+  }
+  nav.links a::after{
+    content:''; position:absolute; left:0; bottom:-2px; width:0; height:1px;
+    background:var(--gold-1); transition:width .25s ease;
+  }
+  nav.links a:hover::after{ width:100%; }
+
+  .nav-actions{ display:flex; align-items:center; gap:22px; }
+  .btn-line{
+    font-size:13.5px; font-weight:600; letter-spacing:0.01em;
+    border:1px solid var(--ink); padding:10px 20px; border-radius:2px;
+    transition:background .2s ease, color .2s ease;
+  }
+  .btn-line:hover{ background:var(--ink); color:var(--ivory); }
+
+  .menu-toggle{ display:none; background:none; border:0; cursor:pointer; padding:6px; }
+  .menu-toggle span{ display:block; width:22px; height:2px; background:var(--ink); margin:5px 0; }
+
+  /* ---------- hero ---------- */
+  .hero{
+    background:var(--black);
+    color:var(--ivory);
+    position:relative;
+    overflow:hidden;
+    padding:96px 0 0;
+  }
+  .hero .wrap{
+    display:grid; grid-template-columns:1.1fr 0.9fr; gap:40px; align-items:center;
+  }
+  .hero-copy p.kicker{
+    font-family:'Fraunces', serif; font-style:italic; font-size:17px;
+    color:var(--gold-3); margin-bottom:22px;
+  }
+  .hero-copy h1{
+    font-size:clamp(38px, 4.6vw, 62px);
+    line-height:1.06;
+    font-style:italic;
+    max-width:12ch;
+  }
+  .hero-copy .sub{
+    margin-top:26px; max-width:44ch; color:rgba(244,238,226,0.72);
+    font-size:16.5px;
+  }
+  .hero-cta{ display:flex; gap:16px; margin-top:38px; flex-wrap:wrap; }
+  .btn-solid{
+    background:linear-gradient(135deg, var(--gold-3), var(--gold-1));
+    color:var(--black); font-weight:700; font-size:14px; letter-spacing:0.01em;
+    padding:15px 26px; border-radius:2px; border:none; cursor:pointer;
+  }
+  .btn-ghost{
+    border:1px solid var(--line-light); color:var(--ivory);
+    font-weight:600; font-size:14px; padding:15px 26px; border-radius:2px;
+  }
+  .btn-ghost:hover{ background:rgba(244,238,226,0.08); }
+
+  .hero-art{ position:relative; height:460px; }
+  .hero-art svg{ width:100%; height:100%; }
+
+  .stat-row{
+    display:flex; gap:52px; margin-top:64px; padding:28px 0;
+    border-top:1px solid var(--line-light);
+  }
+  .stat-row div b{
+    display:block; font-family:'Fraunces', serif; font-size:26px; font-weight:500;
+  }
+  .stat-row div span{ font-size:13px; color:rgba(244,238,226,0.6); }
+
+  /* ---------- ticker ---------- */
+  .ticker{
+    background:var(--gold-1);
+    color:var(--black);
+    overflow:hidden;
+    white-space:nowrap;
+    border-top:1px solid rgba(0,0,0,0.15);
+  }
+  .ticker-track{
+    display:inline-flex;
+    animation:scroll 26s linear infinite;
+  }
+  .ticker-track span{
+    font-family:'Fraunces', serif; font-style:italic; font-weight:500;
+    font-size:16px; padding:14px 34px; flex-shrink:0;
+  }
+  @keyframes scroll{ from{ transform:translateX(0); } to{ transform:translateX(-50%); } }
+
+  /* ---------- section heading ---------- */
+  .section{ padding:104px 0; }
+  .section-head{
+    display:flex; justify-content:space-between; align-items:flex-end;
+    gap:24px; margin-bottom:52px; flex-wrap:wrap;
+  }
+  .section-head h2{ font-size:clamp(28px,3vw,40px); font-style:italic; max-width:16ch; }
+  .section-head p{ max-width:36ch; color:var(--concrete); font-size:15px; }
+
+  /* ---------- collections ---------- */
+  .collections{ display:grid; grid-template-columns:repeat(3,1fr); gap:2px; background:var(--line); }
+  .coll-card{
+    position:relative; min-height:420px; padding:36px;
+    display:flex; flex-direction:column; justify-content:flex-end;
+    transition:transform .35s ease;
+  }
+  .coll-card:hover{ transform:translateY(-6px); }
+  .coll-card h3{ font-size:26px; font-style:italic; }
+  .coll-card p{ font-size:13.5px; margin-top:8px; opacity:0.8; max-width:26ch; }
+  .coll-card .from{ font-size:12.5px; margin-top:18px; letter-spacing:0.04em; }
+  .coll-card svg{ position:absolute; top:34px; right:34px; width:46px; height:46px; opacity:0.9; }
+
+  .coll-luxe{ background:var(--black); color:var(--ivory); }
+  .coll-luxe .from{ color:var(--gold-3); }
+  .coll-street{
+    background:
+      repeating-linear-gradient(135deg, transparent 0 18px, rgba(0,0,0,0.06) 18px 19px),
+      var(--concrete);
+    color:var(--ivory);
+  }
+  .coll-street .from{ color:#E7B7A6; }
+  .coll-sneaker{ background:var(--cream); color:var(--ink); }
+  .coll-sneaker .from{ color:var(--gold-1); }
+
+  /* ---------- products ---------- */
+  .products-grid{
+    display:grid; grid-template-columns:repeat(3,1fr); gap:28px;
+  }
+  .product-card{
+    background:var(--ivory); border:1px solid var(--line); border-radius:3px;
+    overflow:hidden; display:flex; flex-direction:column;
+  }
+  .product-media{
+    aspect-ratio:4/3; display:flex; align-items:center; justify-content:center;
+    padding:30px;
+  }
+  .product-card:nth-child(1) .product-media{ background:#EFE6D3; }
+  .product-card:nth-child(2) .product-media{ background:#E8DAD0; }
+  .product-card:nth-child(3) .product-media{ background:#DCE3DD; }
+  .product-card:nth-child(4) .product-media{ background:#1E1B17; }
+  .product-card:nth-child(5) .product-media{ background:#EDEAE3; }
+  .product-card:nth-child(6) .product-media{ background:#E4D9C6; }
+  .product-media svg{ width:78%; height:78%; }
+  .product-info{ padding:20px 22px 24px; border-top:1px solid var(--line); }
+  .product-info .tag{ font-size:11.5px; letter-spacing:0.08em; color:var(--gold-1); font-weight:600; }
+  .product-info h4{ font-family:'Fraunces', serif; font-size:19px; font-weight:500; margin-top:8px; }
+  .product-info .price-row{
+    display:flex; justify-content:space-between; align-items:center; margin-top:14px;
+  }
+  .product-info .price{ font-weight:700; font-size:15px; }
+  .view-link{ font-size:13px; font-weight:600; color:var(--concrete); border-bottom:1px solid transparent; }
+  .product-card:hover .view-link{ color:var(--ink); border-color:var(--gold-1); }
+
+  /* ---------- craft/story ---------- */
+  .story{ background:var(--cream); }
+  .story .wrap{ display:grid; grid-template-columns:1fr 1fr; gap:70px; align-items:center; }
+  .story-copy h2{ font-size:clamp(28px,3vw,38px); font-style:italic; max-width:14ch; margin-bottom:24px; }
+  .story-copy p{ color:var(--concrete-light); margin-bottom:18px; max-width:46ch; font-size:15.5px; }
+  .story-list{ margin-top:28px; display:flex; flex-direction:column; gap:14px; }
+  .story-list div{ display:flex; gap:14px; align-items:flex-start; font-size:14.5px; }
+  .story-list div .dot{
+    width:6px; height:6px; margin-top:7px; border-radius:50%;
+    background:var(--gold-1); flex-shrink:0;
+  }
+  .story-art{ position:relative; height:420px; }
+  .story-art svg{ width:100%; height:100%; }
+
+  /* ---------- newsletter ---------- */
+  .cta-band{
+    background:var(--black); color:var(--ivory); text-align:center;
+    padding:90px 0;
+  }
+  .cta-band h2{ color:var(--ivory); font-style:italic; font-size:clamp(28px,3.4vw,42px); }
+  .cta-band p{ color:rgba(244,238,226,0.68); margin:16px auto 34px; max-width:42ch; }
+  .cta-form{ display:flex; justify-content:center; gap:10px; max-width:440px; margin:0 auto; flex-wrap:wrap; }
+  .cta-form input{
+    flex:1; min-width:220px; padding:15px 18px; border-radius:2px; border:1px solid var(--line-light);
+    background:transparent; color:var(--ivory); font-size:14.5px;
+  }
+  .cta-form input::placeholder{ color:rgba(244,238,226,0.5); }
+  .cta-form button{
+    padding:15px 26px; border-radius:2px; border:none; cursor:pointer;
+    background:linear-gradient(135deg, var(--gold-3), var(--gold-1));
+    font-weight:700; font-size:14px; color:var(--black);
+  }
+  .form-note{ margin-top:14px; font-size:12.5px; color:rgba(244,238,226,0.45); }
+
+  /* ---------- footer ---------- */
+  footer{ background:var(--ivory); padding:64px 0 32px; border-top:1px solid var(--line); }
+  .foot-top{
+    display:grid; grid-template-columns:1.4fr 1fr 1fr 1fr; gap:40px; padding-bottom:48px;
+  }
+  .foot-top p{ margin-top:16px; color:var(--concrete); font-size:14px; max-width:32ch; }
+  .foot-col h5{ font-size:13px; letter-spacing:0.04em; margin-bottom:16px; color:var(--ink); }
+  .foot-col a{
+    display:block; font-size:14px; color:var(--concrete); margin-bottom:11px;
+  }
+  .foot-col a:hover{ color:var(--ink); }
+  .foot-bottom{
+    display:flex; justify-content:space-between; align-items:center;
+    padding-top:28px; border-top:1px solid var(--line);
+    font-size:12.5px; color:var(--concrete-light); flex-wrap:wrap; gap:12px;
+  }
+
+  /* ---------- responsive ---------- */
+  @media (max-width:900px){
+    nav.links{ display:none; }
+    .menu-toggle{ display:block; }
+    .hero .wrap{ grid-template-columns:1fr; }
+    .hero-art{ height:300px; order:-1; }
+    .collections{ grid-template-columns:1fr; }
+    .products-grid{ grid-template-columns:repeat(2,1fr); }
+    .story .wrap{ grid-template-columns:1fr; }
+    .foot-top{ grid-template-columns:1fr 1fr; }
+    .stat-row{ gap:32px; flex-wrap:wrap; }
+  }
+  @media (max-width:560px){
+    .products-grid{ grid-template-columns:1fr; }
+    .foot-top{ grid-template-columns:1fr; }
+    .hero-cta{ flex-direction:column; }
+    .cta-form{ flex-direction:column; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <a href="#top" class="mark">
+      <svg viewBox="0 0 64 56" fill="none">
+        <defs>
+          <linearGradient id="gGold" x1="0" y1="0" x2="64" y2="56">
+            <stop offset="0" stop-color="#7A4E24"/>
+            <stop offset="1" stop-color="#E9C384"/>
+          </linearGradient>
+        </defs>
+        <path d="M4 10H26V32L15 46L4 32V10Z" stroke="url(#gGold)" stroke-width="2.4" stroke-linejoin="round"/>
+        <path d="M34 10H56V32L45 46L34 32V10Z" stroke="url(#gGold)" stroke-width="2.4" stroke-linejoin="round"/>
+      </svg>
+      <span class="word"><span>Opulence</span><span>CHOOSE COMFORT</span></span>
+    </a>
+    <nav class="links">
+      <a href="#luxe">Luxe</a>
+      <a href="#street">Street</a>
+      <a href="#sneaker">Sneakers</a>
+      <a href="#products">All shoes</a>
+      <a href="#story">Craft</a>
+    </nav>
+    <div class="nav-actions">
+      <a href="#products" class="btn-line">Shop now</a>
+      <button class="menu-toggle" aria-label="Open menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<section class="hero" id="top">
+  <div class="wrap">
+    <div class="hero-copy">
+      <p class="kicker">The comfort-first shoe house</p>
+      <h1>Dressed up, broken in, and built for every block you walk.</h1>
+      <p class="sub">Opulence pairs boutique leather craft with the give of a running shoe, so the same step that carries you into a boardroom carries you home through the city.</p>
+      <div class="hero-cta">
+        <a href="#products" class="btn-solid">Shop the collection</a>
+        <a href="#story" class="btn-ghost">How we build them</a>
+      </div>
+      <div class="stat-row">
+        <div><b>3</b><span>house collections</span></div>
+        <div><b>48hr</b><span>break-in guarantee</span></div>
+        <div><b>12k+</b><span>pairs on the street</span></div>
+      </div>
+    </div>
+    <div class="hero-art">
+      <svg viewBox="0 0 420 460" fill="none">
+        <defs>
+          <linearGradient id="heroGold" x1="0" y1="0" x2="420" y2="460">
+            <stop offset="0" stop-color="#E9C384"/>
+            <stop offset="1" stop-color="#7A4E24"/>
+          </linearGradient>
+        </defs>
+        <path d="M40 90H150V210L100 290L40 210V90Z" stroke="url(#heroGold)" stroke-width="2" opacity="0.5"/>
+        <path d="M270 60H380V180L330 260L270 180V60Z" stroke="url(#heroGold)" stroke-width="2" opacity="0.35"/>
+        <g transform="translate(45,190) rotate(-6)">
+          <path d="M10 130C10 100 40 95 70 90C110 84 150 60 175 45C190 36 205 34 215 42C222 47 224 58 218 68C255 66 300 74 320 96C332 110 330 128 312 136C260 158 90 156 40 148C20 145 10 140 10 130Z"
+                fill="none" stroke="url(#heroGold)" stroke-width="2.6"/>
+          <path d="M60 92C75 78 100 62 130 50" stroke="url(#heroGold)" stroke-width="1.6" opacity="0.7"/>
+          <path d="M70 100C88 84 112 68 138 56" stroke="url(#heroGold)" stroke-width="1.6" opacity="0.7"/>
+          <path d="M80 108C96 92 120 76 146 64" stroke="url(#heroGold)" stroke-width="1.6" opacity="0.7"/>
+          <circle cx="205" cy="46" r="3" fill="#E9C384"/>
+        </g>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<div class="ticker" aria-hidden="true">
+  <div class="ticker-track">
+    <span>Luxe leather — Street tested — Sneaker built — Comfort first —</span>
+    <span>Luxe leather — Street tested — Sneaker built — Comfort first —</span>
+  </div>
+</div>
+
+<section class="section" id="collections">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Three worlds, one last</h2>
+      <p>Every Opulence shoe shares the same comfort core — only the finish changes with where you're headed.</p>
+    </div>
+    <div class="collections">
+      <a href="#luxe" class="coll-card coll-luxe" id="luxe">
+        <svg viewBox="0 0 46 46" fill="none"><path d="M6 8H22V26L14 38L6 26V8Z" stroke="#E9C384" stroke-width="1.8"/></svg>
+        <h3>Luxe</h3>
+        <p>Hand-finished leather oxfords and loafers, cushioned like they shouldn't be.</p>
+        <span class="from">From $420</span>
+      </a>
+      <a href="#street" class="coll-card coll-street" id="street">
+        <svg viewBox="0 0 46 46" fill="none"><path d="M6 8H22V26L14 38L6 26V8Z" stroke="#E7B7A6" stroke-width="1.8"/></svg>
+        <h3>Street</h3>
+        <p>Heavyweight canvas and suede built for pavement, not runways.</p>
+        <span class="from">From $160</span>
+      </a>
+      <a href="#sneaker" class="coll-card coll-sneaker" id="sneaker">
+        <svg viewBox="0 0 46 46" fill="none"><path d="M6 8H22V26L14 38L6 26V8Z" stroke="#7A4E24" stroke-width="1.8"/></svg>
+        <h3>Sneaker</h3>
+        <p>Foam-forward everyday trainers in colorways you'll actually wear out.</p>
+        <span class="from">From $130</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="products" style="padding-top:0;">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>New this season</h2>
+      <p>A short run of favorites across all three lines — restocked weekly.</p>
+    </div>
+    <div class="products-grid">
+
+      <div class="product-card">
+        <div class="product-media">
+          <svg viewBox="0 0 200 120" fill="none"><path d="M15 95c0-20 22-24 48-28 30-5 60-22 78-34 10-6 20-8 27-1 6 6 7 15 2 22 27-1 55 5 68 20 8 9 7 21-5 26-38 15-140 13-175 8-13-2-43-6-43-13z" fill="none" stroke="#7A4E24" stroke-width="2.4"/></svg>
+        </div>
+        <div class="product-info">
+          <span class="tag">LUXE</span>
+          <h4>The Marchetti Oxford</h4>
+          <div class="price-row"><span class="price">$460</span><span class="view-link">View →</span></div>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="product-media">
+          <svg viewBox="0 0 200 120" fill="none"><path d="M15 95c0-20 22-24 48-28 30-5 60-22 78-34 10-6 20-8 27-1 6 6 7 15 2 22 27-1 55 5 68 20 8 9 7 21-5 26-38 15-140 13-175 8-13-2-43-6-43-13z" fill="none" stroke="#6B2430" stroke-width="2.4"/></svg>
+        </div>
+        <div class="product-info">
+          <span class="tag">LUXE</span>
+          <h4>Cavallo Penny Loafer</h4>
+          <div class="price-row"><span class="price">$395</span><span class="view-link">View →</span></div>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="product-media">
+          <svg viewBox="0 0 200 120" fill="none"><path d="M15 95c0-20 22-24 48-28 30-5 60-22 78-34 10-6 20-8 27-1 6 6 7 15 2 22 27-1 55 5 68 20 8 9 7 21-5 26-38 15-140 13-175 8-13-2-43-6-43-13z" fill="none" stroke="#3C372F" stroke-width="2.4"/></svg>
+        </div>
+        <div class="product-info">
+          <span class="tag">STREET</span>
+          <h4>Bowery Canvas High-Top</h4>
+          <div class="price-row"><span class="price">$175</span><span class="view-link">View →</span></div>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="product-media">
+          <svg viewBox="0 0 200 120" fill="none"><path d="M15 95c0-20 22-24 48-28 30-5 60-22 78-34 10-6 20-8 27-1 6 6 7 15 2 22 27-1 55 5 68 20 8 9 7 21-5 26-38 15-140 13-175 8-13-2-43-6-43-13z" fill="none" stroke="#E9C384" stroke-width="2.4"/></svg>
+        </div>
+        <div class="product-info">
+          <span class="tag">STREET</span>
+          <h4>Delancey Suede Trainer</h4>
+          <div class="price-row"><span class="price">$210</span><span class="view-link">View →</span></div>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="product-media">
+          <svg viewBox="0 0 200 120" fill="none"><path d="M15 95c0-20 22-24 48-28 30-5 60-22 78-34 10-6 20-8 27-1 6 6 7 15 2 22 27-1 55 5 68 20 8 9 7 21-5 26-38 15-140 13-175 8-13-2-43-6-43-13z" fill="none" stroke="#7A4E24" stroke-width="2.4"/></svg>
+        </div>
+        <div class="product-info">
+          <span class="tag">SNEAKER</span>
+          <h4>Vantage Foam Runner</h4>
+          <div class="price-row"><span class="price">$145</span><span class="view-link">View →</span></div>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="product-media">
+          <svg viewBox="0 0 200 120" fill="none"><path d="M15 95c0-20 22-24 48-28 30-5 60-22 78-34 10-6 20-8 27-1 6 6 7 15 2 22 27-1 55 5 68 20 8 9 7 21-5 26-38 15-140 13-175 8-13-2-43-6-43-13z" fill="none" stroke="#6B2430" stroke-width="2.4"/></svg>
+        </div>
+        <div class="product-info">
+          <span class="tag">SNEAKER</span>
+          <h4>Halden Everyday Trainer</h4>
+          <div class="price-row"><span class="price">$130</span><span class="view-link">View →</span></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="story section" id="story">
+  <div class="wrap">
+    <div class="story-copy">
+      <h2>Comfort isn't a compromise on style</h2>
+      <p>Most brands make you pick a lane — dress shoes that punish your feet, or sneakers that don't belong past the gym. We build every last around a memory-foam midsole first, then finish it in whatever the collection calls for: calfskin, canvas, or knit.</p>
+      <p>Each pair is fitted by hand in small batches, tested on actual pavement before it ships, and backed by a break-in guarantee — if it isn't comfortable in 48 hours, we resole it or take it back.</p>
+      <div class="story-list">
+        <div><span class="dot"></span> Full-grain and vegetable-tanned leathers, sourced by tannery, not by price.</div>
+        <div><span class="dot"></span> A single cushioned midsole platform shared across all three collections.</div>
+        <div><span class="dot"></span> Hand-lasted construction, resoleable rather than disposable.</div>
+      </div>
+    </div>
+    <div class="story-art">
+      <svg viewBox="0 0 400 420" fill="none">
+        <defs>
+          <linearGradient id="storyGold" x1="0" y1="0" x2="400" y2="420">
+            <stop offset="0" stop-color="#7A4E24"/>
+            <stop offset="1" stop-color="#E9C384"/>
+          </linearGradient>
+        </defs>
+        <path d="M40 40H150V150L95 220L40 150V40Z" stroke="url(#storyGold)" stroke-width="2"/>
+        <path d="M60 60H130V142L95 190L60 142V60Z" stroke="url(#storyGold)" stroke-width="1.2" opacity="0.5"/>
+        <path d="M230 190H340V300L285 370L230 300V190Z" stroke="url(#storyGold)" stroke-width="2"/>
+        <path d="M250 210H320V292L285 340L250 292V210Z" stroke="url(#storyGold)" stroke-width="1.2" opacity="0.5"/>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<section class="cta-band">
+  <div class="wrap">
+    <h2>Get first access to drops</h2>
+    <p>New colorways, restocks, and early invites to Luxe releases — straight to your inbox, no more than twice a month.</p>
+    <form class="cta-form" onsubmit="event.preventDefault(); this.querySelector('button').textContent='Signed up';">
+      <input type="email" placeholder="you@email.com" required aria-label="Email address">
+      <button type="submit">Notify me</button>
+    </form>
+    <p class="form-note">Unsubscribe anytime. We don't sell your details.</p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-top">
+      <div>
+        <div class="mark">
+          <svg viewBox="0 0 64 56" fill="none">
+            <path d="M4 10H26V32L15 46L4 32V10Z" stroke="url(#gGold)" stroke-width="2.4" stroke-linejoin="round"/>
+            <path d="M34 10H56V32L45 46L34 32V10Z" stroke="url(#gGold)" stroke-width="2.4" stroke-linejoin="round"/>
+          </svg>
+          <span class="word"><span>Opulence</span><span>CHOOSE COMFORT</span></span>
+        </div>
+        <p>Comfort-first footwear across luxe, street, and everyday sneaker lines. Hand-finished, resoleable, built to be lived in.</p>
+      </div>
+      <div class="foot-col">
+        <h5>Shop</h5>
+        <a href="#luxe">Luxe</a>
+        <a href="#street">Street</a>
+        <a href="#sneaker">Sneakers</a>
+        <a href="#products">All shoes</a>
+      </div>
+      <div class="foot-col">
+        <h5>Company</h5>
+        <a href="#story">Our craft</a>
+        <a href="#">Stores</a>
+        <a href="#">Careers</a>
+        <a href="#">Journal</a>
+      </div>
+      <div class="foot-col">
+        <h5>Support</h5>
+        <a href="#">Sizing guide</a>
+        <a href="#">Returns</a>
+        <a href="#">Resole service</a>
+        <a href="#">Contact</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Opulence Footwear. All rights reserved.</span>
+      <span>Bhubaneswar · Made to travel further</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
